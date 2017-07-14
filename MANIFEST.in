@@ -1,0 +1,3 @@
+graft FlaskTest/templaes
+graft FlaskTest/static
+include FlaskTest/schema.sql
