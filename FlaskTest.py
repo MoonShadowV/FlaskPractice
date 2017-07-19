@@ -27,7 +27,7 @@ def close_db(erro):
     if hasattr(g,'mysql_db'):
         g.mysql_db.close()
 
-@app.route('/')
+@app.route('/show')
 def show_entries():
     db = get_db()
     sql = "select user_name,videotag,weight " \
@@ -41,18 +41,26 @@ def show_entries():
 
 @app.route('/register',methods=['POST'])
 def register():
-    if not session.get('logged_in'):
-        abort(401)
+#    if not session.get('logged_in'):
+#       abort(401)
+    u = request.form['user_name']
     db = get_db()
-    sql = "insert into userinfo (user_name,user_password) values (%s,%s)"
     cur = db.cursor()
-    cur.execute(sql,[request.form['user_name'],request.form['user_password']])
-    db.commit()
-    flash('注册成功！')
-    return redirect(url_for('show_entries'))
+    cur.execute('select user_name,user_password from userinfo where user_name = %s', (u,))
+    content = cur.fetchone()
+    if content:
+        flash('用户名已存在！')
+    else:
+        db = get_db()
+        sql = "insert into userinfo (user_name,user_password) values (%s,%s)"
+        cur = db.cursor()
+        cur.execute(sql,[request.form['user_name'],request.form['user_password']])
+        db.commit()
+        flash('注册成功！')
+    return render_template('index.html')
 
 
-@app.route('/login',methods=['GET','POST'])
+@app.route('/',methods=['GET','POST'])
 def login():
     error = None
     if request.method == 'POST':
@@ -64,24 +72,30 @@ def login():
             cur = db.cursor()
             cur.execute('select user_name,user_password from userinfo where user_name = %s', (u,))
             content = cur.fetchone()
-            username = content[0]
-            password = content[1]
-            if  u != username:
-                error = '用户名或密码错误'
-            elif p != password:
-                error = '用户名或密码错误'
+            if content:
+                username = content[0]
+                password = content[1]
+                if u != username:
+                    #error = '用户名或密码错误'
+                    flash('用户名或密码错误')
+                elif p != password:
+                    #error = '用户名或密码错误'
+                    flash('用户名或密码错误')
+                else:
+                    session['logged_in'] = True
+                    flash('登录成功')
+                    return redirect(url_for('show_entries'))
             else:
-                session['logged_in'] = True
-                flash('登录成功')
-                return redirect(url_for('show_entries'))
-    return render_template('login.html',error=error)
+                error = '用户名或密码错误'
+    return render_template('index.html',error=error)
 
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in',None)
     flash('已注销登录')
-    return redirect(url_for('show_entries'))
+    #return redirect(url_for('show_entries'))
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run()
