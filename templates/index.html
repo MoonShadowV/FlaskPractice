@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<!-- Custom Theme files -->
+    <script src="../static/bootstrap/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="../static/loginstyle.css">
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--Google Fonts-->
+</head>
+
+<body>
+<div class="login">
+	<h2>Bilibili RS</h2>
+	<div class="login-top">
+		<h1>登 录</h1>
+		<form action="{{ url_for('login')}}" method="post">
+			<input name="username" type="text" value="User Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User Name';}">
+			<input name="password" type="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}">
+			<input type="submit" value="登录" >
+	    </form>
+        </div>
+     <div class="login-bottom">
+        <h3>New User &nbsp;<a data-target="#register" data-toggle="modal" href="">Register</a>&nbsp Here</h3>
+    </div>
+</div>
+
+    <div id="register" class="modal fade" data-backdrop="static" role="dialog" tabindex="-1" aria-labelledby="title1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header well" id="header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <h4 class="modal-title text-center" id="title1">注 册</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group" action="{{ url_for('register')}}" method="post">
+                        <div class="form-group">
+                            <label for="">用户名</label>
+                            <input name="user_name" class="form-control" type="text" placeholder="" >
+                        </div>
+                        <div class="form-group">
+                            <label for="">密码</label>
+                            <input name="user_password" class="form-control" type="password" placeholder="">
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-primary" type="submit">确认</button>
+                            <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+
+
+<div class="copyright">
+	<p>Copyright &copy; 2017.香香鸡有限责任公司 All rights reserved.<a target="_blank"
+</div>
+
+
+</body>
+</html>
