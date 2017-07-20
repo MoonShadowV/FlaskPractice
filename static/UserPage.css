@@ -1,0 +1,28 @@
+#main-page{
+
+}
+#menu-bar{
+    padding: 0;
+}
+.main-content{
+    padding: 0;
+}
+
+
+#logo{
+    font-family: "Magneto";
+    margin: 0;
+    padding-left: 2%;
+}
+
+#header{
+    padding: 0;
+}
+
+.form-title{
+    padding: 10px;
+}
+
+.copyright{
+    padding-top: 5%;
+}
