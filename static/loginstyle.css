@@ -138,7 +138,7 @@ body{
   color: #fff;
 }
 .login-bottom h3 a:hover {
-	color:crimson;
+	color:black;
 	transition: 0.5s all;
   -webkit-transition: 0.5s all;
   -moz-transition: 0.5s all;
@@ -167,11 +167,11 @@ body{
 }
 
 #header{
-    background-color: #28a4c9;
+    background-color: cornflowerblue;
 }
 #title1{
     font-size: 22pt;
-    font-family: "Microsoft YaHei UI";
+    font-family: "微软雅黑";
 }
 /*--login end here--*/
 /*--meadia quiries start here--*/
