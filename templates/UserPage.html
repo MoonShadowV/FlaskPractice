@@ -15,7 +15,7 @@
 <body>
     <div class="container-fluid main-content">
         <div class="row clearfix" id="header">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="page-header text-primary" id="logo">
                         <h1>
                             Bilibili RS
@@ -25,13 +25,19 @@
                         </h1>
                 </div>
             </div>
+            <div class="col-md-6">
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href=""><h4>欢迎你,{{username}}</h4></a></li>
+                    <li role="presentation"><a href="{{ url_for('logout') }}"><h4>退出登录</h4></a></li>
+                </ul>
+            </div>
         </div>
         <div class="row" id="main-page">
             <div class="col-md-2" id="menu-bar">
                 <ul class="list-group">
                     <div class="image">
                         <li class="user-image list-group-item">
-                            <img src="../images/kami.jpg" class="img-circle img-responsive">
+                            <img src="{{ url_for('static',filename='images/kami.jpg')}}" class="img-circle img-responsive">
                         </li>
                     </div>
                     <li class="list-group-item">
@@ -57,46 +63,12 @@
                         </tr>
                         </thead>
                         <tbody>
+                        {% for i in pref%}
                         <tr>
-                            <td>
-                                东方
-                            </td>
-                            <td>
-                                5
-                            </td>
+                            <td>{{ i[0] }}</td>
+                            <td>{{ i[1] }}</td>
                         </tr>
-                        <tr>
-                            <td>
-                                白学
-                            </td>
-                            <td>
-                                6
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                守望先锋
-                            </td>
-                            <td>
-                                4
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                MMD
-                            </td>
-                            <td>
-                                8
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                洛天依
-                            </td>
-                            <td>
-                                10
-                            </td>
-                        </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

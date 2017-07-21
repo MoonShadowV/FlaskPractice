@@ -2,6 +2,7 @@ import os
 from flask import Flask,request,session,g,redirect,url_for,abort,\
     render_template,flash
 import mysql.connector
+import pandas as pd
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -30,13 +31,19 @@ def close_db(erro):
 @app.route('/show')
 def show_entries():
     db = get_db()
-    sql = "select user_name,videotag,weight " \
+    sql = "select videotag,weight " \
           "from userinfo,userprf " \
-          "where userinfo.user_id = userprf.user_id;"
+          "where userinfo.user_name = %s ORDER BY weight DESC ;"
     cur = db.cursor()
-    cur.execute(sql)
-    entries = cur.fetchall()
-    return render_template('show_entries.html',entries=entries)
+    cur.execute(sql,(session['username'],))
+    data = cur.fetchall()
+    """
+    preference = pd.DataFrame(d,columns=['username','tag','weight']).ix[:,1:]
+    data = {}
+    for i in range(preference.shape[0]):
+        data[preference.ix[i][0]] = preference.ix[i][1]
+    """
+    return render_template('UserPage.html',username=session['username'],pref = data)
 
 
 @app.route('/register',methods=['POST'])
@@ -66,16 +73,16 @@ def login():
     if request.method == 'POST':
         error = None
         if request.method == 'POST':
-            u = request.form['username']
+            session['username'] = request.form['username']
             p = request.form['password']
             db =get_db()
             cur = db.cursor()
-            cur.execute('select user_name,user_password from userinfo where user_name = %s', (u,))
+            cur.execute('select user_name,user_password from userinfo where user_name = %s', (session['username'],))
             content = cur.fetchone()
             if content:
                 username = content[0]
                 password = content[1]
-                if u != username:
+                if session['username'] != username:
                     #error = '用户名或密码错误'
                     flash('用户名或密码错误')
                 elif p != password:
@@ -92,6 +99,7 @@ def login():
 
 @app.route('/logout')
 def logout():
+    session.pop('username',None)
     session.pop('logged_in',None)
     flash('已注销登录')
     #return redirect(url_for('show_entries'))
