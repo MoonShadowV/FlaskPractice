@@ -34,6 +34,7 @@ def get_id(usename):
 def close_db(erro):
     if hasattr(g,'mysql_db'):
         g.mysql_db.close()
+#teardown_appcontext() 标记的函数会在每次应用环境销毁时调用。
 
 @app.route('/show')
 def show_entries():
