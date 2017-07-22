@@ -63,12 +63,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for i in pref%}
+                        {% if pref %}
+                            {% for i in pref%}
                         <tr>
                             <td>{{ i[0] }}</td>
                             <td>{{ i[1] }}</td>
                         </tr>
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {% endif %}
                         </tbody>
                     </table>
                 </div>

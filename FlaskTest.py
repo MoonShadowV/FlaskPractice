@@ -22,6 +22,13 @@ def get_db():
         g.mysql_db = connect_db()
     return g.mysql_db
 
+def get_id(usename):
+    db = get_db()
+    sql = "SELECT user_id FROM bilibili.userinfo where user_name = %s;"
+    cur = db.cursor()
+    cur.execute(sql,(usename,))
+    user_id =cur.fetchone()
+    return user_id
 
 @app.teardown_appcontext
 def close_db(erro):
@@ -30,20 +37,16 @@ def close_db(erro):
 
 @app.route('/show')
 def show_entries():
-    db = get_db()
-    sql = "select videotag,weight " \
-          "from userinfo,userprf " \
-          "where userinfo.user_name = %s ORDER BY weight DESC ;"
-    cur = db.cursor()
-    cur.execute(sql,(session['username'],))
-    data = cur.fetchall()
-    """
-    preference = pd.DataFrame(d,columns=['username','tag','weight']).ix[:,1:]
-    data = {}
-    for i in range(preference.shape[0]):
-        data[preference.ix[i][0]] = preference.ix[i][1]
-    """
-    return render_template('UserPage.html',username=session['username'],pref = data)
+    if 'logged_in' in session:
+        id = get_id(session['username'])
+        db = get_db()
+        sql = "select videotag,weight from userprf where userprf.user_id = %s ORDER BY weight DESC ;"
+        cur = db.cursor()
+        cur.execute(sql, (id[0],))
+        data = cur.fetchall()
+        return render_template('UserPage.html', username=session['username'], pref=data)
+    else:
+        return render_template('index.html')
 
 
 @app.route('/register',methods=['POST'])
