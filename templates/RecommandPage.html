@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ZH">
+<head>
+    <meta charset="UTF-8">
+    <title>Bilibili RS——RecommandPage</title>
+    <script src="../static/bootstrap/js/jquery-3.2.1.min.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/bootstrap/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="../static/UserPage.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div class="container-fluid main-content">
+    <div class="row clearfix" id="header">
+        <div class="col-md-6">
+            <div class="page-header text-primary" id="logo">
+                <h1>
+                    Bilibili RS
+                    <small style="font-family: '方正舒体'" >
+                        有态度的推荐系统
+                    </small>
+                </h1>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href=""><h4>欢迎你,{{username}}</h4></a></li>
+                <li role="presentation"><a href="{{ url_for('logout') }}"><h4>退出登录</h4></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="main-page">
+        <div class="col-md-2" id="menu-bar">
+            <ul class="list-group">
+                <div class="image">
+                    <li class="user-image list-group-item">
+                        <img src="{{ url_for('static',filename='images/kami.jpg')}}" class="img-circle img-responsive">
+                    </li>
+                </div>
+                <li class="list-group-item">
+                    <a href="{{ url_for('show_entries') }}"><button class="btn btn-block btn-primary"><h4 class="text-center">用户信息</h4></button></a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{{ url_for('recommand') }}"><button class="btn btn-block btn-primary"><h4 class="text-center">视频推荐</h4></button></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-8" id="content">
+            <div class="form-title">
+                <h3 class="text-center">
+                    推荐结果
+                </h3>
+            </div>
+            <div class="preference">
+                <table class="table table-bordered table-hover" id="prf-table" >
+                    <thead>
+                    <tr class="well">
+                        <th>标题</th>
+                        <th>URL</th>
+                        <th>匹配度</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if data %}
+                        {% for i in data %}
+                    <tr>
+                        <td>{{ i[0] }}</td>
+                        <td><a href="{{ i[1] }}" target="_blank">{{ i[1] }}</a></td>
+                        <td>{{ i[2] }}</td>
+                    </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-2" id="blank"> </div>
+        </div>
+    </div>
+    <div class="row" id="page">
+        <div class="col-md-2 blank"></div>
+        <div class="col-md-8">
+            <div class="preference pull-right">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">Prev</a>
+                    </li>
+                    <li>
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2 blank" > </div>
+    </div>
+</div>
+<div class="row" id="copyright">
+    <div class="copyright col-md-12 text-center">
+        <p>Copyright &copy; 2017.香香鸡有限责任公司 All rights reserved.</p>
+    </div>
+</div>
+</body>
+</html>
