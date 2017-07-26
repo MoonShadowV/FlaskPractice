@@ -124,10 +124,44 @@ def runAlgorithm(Data,userData):
     C5.join()
 """
 
+@app.route('/updateUserPref/')
+def updateUserPref():
+    user_id = session['id']
+    aid = request.args.get('aid')
+    print(aid)
+    db = get_db()
+    cur = db.cursor()
+
+    #获取视频标签
+    cur.execute("SELECT * FROM bilibili.bilibilidata where aid = %s;",(aid,))
+    tag = cur.fetchone()
+    tag = pd.Series(tag)[8:]
+
+    userPref = session['userpref']
+    print(userPref)
+
+    for i in tag:
+        if i:
+            if i in userPref:
+                weight = userPref[i]+1
+                sql = "UPDATE `bilibili`.`userprf` SET `weight`=%s WHERE  `user_id`= %s and videotag = %s;"
+                cur.execute(sql,(weight,user_id,i,))
+                db.commit()
+            else:
+                print(i)
+                sql = ("INSERT INTO `bilibili`.`userprf` (`user_id`, `videotag`, `weight`) VALUES (%s, %s, %s);")
+                cur.execute(sql, (user_id, i,1,))
+                db.commit()
+
+    return aid
+
+
+
 @app.route('/recommand/')
 def recommand():
     if 'logged_in' in session:
         id = get_id(session['username'])
+        session['id'] = id[0]
         db = get_db()
         sql = "select videotag,weight from userprf where userprf.user_id = %s ORDER BY weight DESC ;"
         cur = db.cursor()
@@ -150,8 +184,9 @@ def recommand():
                 aid = i[0]
                 url = strtemp+str(aid)
                 title = videoData[videoData['aid'] == aid].iloc[0][0]
+                intro = videoData[videoData['aid'] == aid].iloc[0][1]
                 weight = round(i[1],5)
-                data.append([title,url,weight])
+                data.append([title,url,aid,intro,weight])
         return render_template('RecommandPage.html',username=session['username'],data=data)
 
 @app.route('/show/')
@@ -163,6 +198,7 @@ def show_entries():
         cur = db.cursor()
         cur.execute(sql, (id[0],))
         data = cur.fetchall()
+        session['userpref'] = dict(data)
         return render_template('UserPage.html', username=session['username'], pref=data)
     else:
         return render_template('index.html')
