@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c30c1320-9a15-4356-9b44-b611749e4d02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FlaskTest.py" afterPath="$PROJECT_DIR$/FlaskTest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/RecommandPage.html" afterPath="$PROJECT_DIR$/templates/RecommandPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/UserPage.html" afterPath="$PROJECT_DIR$/templates/UserPage.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/FlaskTest$FlaskTest.coverage" NAME="FlaskTest Coverage Results" MODIFIED="1501082228023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/FlaskTest$FlaskTest.coverage" NAME="FlaskTest Coverage Results" MODIFIED="1501165782864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -35,39 +33,38 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
+            <state relative-caret-position="23">
               <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FlaskTest.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FlaskTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FlaskTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="146" column="23" lean-forward="true" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
+            <state relative-caret-position="3308">
+              <caret line="193" column="29" lean-forward="false" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="29" />
               <folding>
-                <marker date="1501081747369" expanded="true" signature="559:594" ph="SELECT * FRO... bilibilidata" />
-                <marker date="1501081747369" expanded="true" signature="1127:1185" ph="SELECT user_... userinfo" />
-                <marker date="1501081747369" expanded="true" signature="3342:3392" ph="SELECT * FRO... bilibilidata" />
-                <marker date="1501081747369" expanded="true" signature="3638:3720" ph="UPDATE `bili... " />
-                <marker date="1501081747369" expanded="true" signature="3871:3957" ph="INSERT INTO `bilibili`.`userprf`... " />
-                <marker date="1501081747369" expanded="true" signature="4240:4323" ph="select video... userprf" />
-                <marker date="1501081747369" expanded="true" signature="5347:5430" ph="select video... userprf" />
-                <marker date="1501081747369" expanded="true" signature="5918:5983" ph="select user_... userinfo" />
-                <marker date="1501081747369" expanded="true" signature="6109:6170" ph="insert into userinfo... " />
-                <marker date="1501081747369" expanded="true" signature="6629:6694" ph="select user_... userinfo" />
+                <marker date="1501166447117" expanded="true" signature="559:594" ph="SELECT * FRO... bilibilidata" />
+                <marker date="1501166447117" expanded="true" signature="1127:1185" ph="SELECT user_... userinfo" />
+                <marker date="1501166447117" expanded="true" signature="3342:3392" ph="SELECT * FRO... bilibilidata" />
+                <marker date="1501166447117" expanded="true" signature="3639:3721" ph="UPDATE `bili... " />
+                <marker date="1501166447117" expanded="true" signature="3847:3933" ph="INSERT INTO `bilibili`.`userprf`... " />
+                <marker date="1501166447117" expanded="true" signature="4088:4171" ph="select video... userprf" />
+                <marker date="1501166447117" expanded="true" signature="5712:5777" ph="select user_... userinfo" />
+                <marker date="1501166447117" expanded="true" signature="5903:5964" ph="insert into userinfo... " />
+                <marker date="1501166447117" expanded="true" signature="6423:6488" ph="select user_... userinfo" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecommandPage.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RecommandPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/RecommandPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="134" column="7" lean-forward="true" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="7" />
+            <state relative-caret-position="1918">
+              <caret line="134" column="7" lean-forward="false" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -76,8 +73,8 @@
       <file leaf-file-name="UserPage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/UserPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-671">
-              <caret line="71" column="21" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="21" />
+            <state relative-caret-position="437">
+              <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -129,9 +126,9 @@
         <option value="$PROJECT_DIR$/static/UserPage.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/Algorithm.py" />
+        <option value="$PROJECT_DIR$/templates/RecommandPage.html" />
         <option value="$PROJECT_DIR$/templates/UserPage.html" />
         <option value="$PROJECT_DIR$/FlaskTest.py" />
-        <option value="$PROJECT_DIR$/templates/RecommandPage.html" />
       </list>
     </option>
   </component>
@@ -162,20 +159,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="IDE Scripting" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -186,6 +169,20 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="FlaskTest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IDE Scripting" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -405,16 +402,15 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.4960541" order="0" side_tool="false" content_ui="combo" x="854" y="72" width="212" height="896" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905984" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22011173" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23240224" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32731378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.4960541" order="0" side_tool="false" content_ui="combo" x="854" y="72" width="212" height="896" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32731378" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3375932" sideWeight="0.5039459" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -423,6 +419,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -766,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="31" column="6" lean-forward="false" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,14 +777,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/RecommandPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1918">
+          <caret line="134" column="7" lean-forward="false" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/UserPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-671">
-          <caret line="71" column="21" lean-forward="false" selection-start-line="71" selection-start-column="20" selection-end-line="71" selection-end-column="21" />
+        <state relative-caret-position="437">
+          <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -798,7 +800,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="23">
           <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
           <folding />
         </state>
@@ -806,28 +808,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FlaskTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="146" column="23" lean-forward="true" selection-start-line="146" selection-start-column="23" selection-end-line="146" selection-end-column="23" />
+        <state relative-caret-position="3308">
+          <caret line="193" column="29" lean-forward="false" selection-start-line="193" selection-start-column="29" selection-end-line="193" selection-end-column="29" />
           <folding>
-            <marker date="1501081747369" expanded="true" signature="559:594" ph="SELECT * FRO... bilibilidata" />
-            <marker date="1501081747369" expanded="true" signature="1127:1185" ph="SELECT user_... userinfo" />
-            <marker date="1501081747369" expanded="true" signature="3342:3392" ph="SELECT * FRO... bilibilidata" />
-            <marker date="1501081747369" expanded="true" signature="3638:3720" ph="UPDATE `bili... " />
-            <marker date="1501081747369" expanded="true" signature="3871:3957" ph="INSERT INTO `bilibili`.`userprf`... " />
-            <marker date="1501081747369" expanded="true" signature="4240:4323" ph="select video... userprf" />
-            <marker date="1501081747369" expanded="true" signature="5347:5430" ph="select video... userprf" />
-            <marker date="1501081747369" expanded="true" signature="5918:5983" ph="select user_... userinfo" />
-            <marker date="1501081747369" expanded="true" signature="6109:6170" ph="insert into userinfo... " />
-            <marker date="1501081747369" expanded="true" signature="6629:6694" ph="select user_... userinfo" />
+            <marker date="1501166447117" expanded="true" signature="559:594" ph="SELECT * FRO... bilibilidata" />
+            <marker date="1501166447117" expanded="true" signature="1127:1185" ph="SELECT user_... userinfo" />
+            <marker date="1501166447117" expanded="true" signature="3342:3392" ph="SELECT * FRO... bilibilidata" />
+            <marker date="1501166447117" expanded="true" signature="3639:3721" ph="UPDATE `bili... " />
+            <marker date="1501166447117" expanded="true" signature="3847:3933" ph="INSERT INTO `bilibili`.`userprf`... " />
+            <marker date="1501166447117" expanded="true" signature="4088:4171" ph="select video... userprf" />
+            <marker date="1501166447117" expanded="true" signature="5712:5777" ph="select user_... userinfo" />
+            <marker date="1501166447117" expanded="true" signature="5903:5964" ph="insert into userinfo... " />
+            <marker date="1501166447117" expanded="true" signature="6423:6488" ph="select user_... userinfo" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/RecommandPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="134" column="7" lean-forward="true" selection-start-line="134" selection-start-column="7" selection-end-line="134" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>

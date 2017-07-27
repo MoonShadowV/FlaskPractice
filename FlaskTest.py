@@ -137,7 +137,7 @@ def updateUserPref():
     tag = cur.fetchone()
     tag = pd.Series(tag)[8:]
 
-    userPref = session['userpref']
+    userPref = getUserPref(user_id)
     print(userPref)
 
     for i in tag:
@@ -148,7 +148,6 @@ def updateUserPref():
                 cur.execute(sql,(weight,user_id,i,))
                 db.commit()
             else:
-                print(i)
                 sql = ("INSERT INTO `bilibili`.`userprf` (`user_id`, `videotag`, `weight`) VALUES (%s, %s, %s);")
                 cur.execute(sql, (user_id, i,1,))
                 db.commit()
@@ -156,28 +155,27 @@ def updateUserPref():
     return aid
 
 
+def getUserPref(user_id):
+    db = get_db()
+    sql = "select videotag,weight from userprf where userprf.user_id = %s ORDER BY weight DESC ;"
+    cur = db.cursor()
+    cur.execute(sql, (user_id,))
+    userPref = cur.fetchall()
+    return userPref
 
 @app.route('/recommand/')
 def recommand():
     if 'logged_in' in session:
-        id = get_id(session['username'])
-        session['id'] = id[0]
-        db = get_db()
-        sql = "select videotag,weight from userprf where userprf.user_id = %s ORDER BY weight DESC ;"
-        cur = db.cursor()
-        cur.execute(sql, (id[0],))
-        userData = cur.fetchall()
+        id = session['id']
+        userData = getUserPref(id)
         userData = pd.Series(dict(userData))
 
         with app.app_context():
             Algorithm(videoData,userData)
 
-        print('Beta')
-
         strtemp = "https://www.bilibili.com/video/av"
         data = []
         if not hasattr(g,'sim'):
-            print('Echo')
             g.sim = Sim
             g.sim.sort_values(0,0)
             for i in g.sim.head(20).items():
@@ -193,16 +191,12 @@ def recommand():
 def show_entries():
     if 'logged_in' in session:
         id = get_id(session['username'])
-        db = get_db()
-        sql = "select videotag,weight from userprf where userprf.user_id = %s ORDER BY weight DESC ;"
-        cur = db.cursor()
-        cur.execute(sql, (id[0],))
-        data = cur.fetchall()
+        session['id'] = id[0]
+        data = getUserPref(id[0])
         session['userpref'] = dict(data)
         return render_template('UserPage.html', username=session['username'], pref=data)
     else:
         return render_template('index.html')
-
 
 @app.route('/register/',methods=['POST'])
 def register():
