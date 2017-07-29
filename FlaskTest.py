@@ -128,7 +128,7 @@ def runAlgorithm(Data,userData):
 def updateUserPref():
     user_id = session['id']
     aid = request.args.get('aid')
-    print(aid)
+
     db = get_db()
     cur = db.cursor()
 
@@ -137,17 +137,21 @@ def updateUserPref():
     tag = cur.fetchone()
     tag = pd.Series(tag)[8:]
 
-    userPref = getUserPref(user_id)
+    print(tag)
+
+    userPref = dict(getUserPref(user_id))
     print(userPref)
 
     for i in tag:
         if i:
             if i in userPref:
+                print('update')
                 weight = userPref[i]+1
                 sql = "UPDATE `bilibili`.`userprf` SET `weight`=%s WHERE  `user_id`= %s and videotag = %s;"
                 cur.execute(sql,(weight,user_id,i,))
                 db.commit()
             else:
+                print('insert')
                 sql = ("INSERT INTO `bilibili`.`userprf` (`user_id`, `videotag`, `weight`) VALUES (%s, %s, %s);")
                 cur.execute(sql, (user_id, i,1,))
                 db.commit()
@@ -178,13 +182,43 @@ def recommand():
         if not hasattr(g,'sim'):
             g.sim = Sim
             g.sim.sort_values(0,0)
-            for i in g.sim.head(20).items():
+            if not 'recommanded' in session:
+                print("echo")
+                session['recommanded'] = dict()
+
+            print(session['recommanded'])
+            recommanded = session['recommanded']
+
+            for i in g.sim.head(40).items():
+                if len(data) >= 20:
+                    break
+
                 aid = i[0]
-                url = strtemp+str(aid)
-                title = videoData[videoData['aid'] == aid].iloc[0][0]
-                intro = videoData[videoData['aid'] == aid].iloc[0][1]
-                weight = round(i[1],5)
-                data.append([title,url,aid,intro,weight])
+                if str(aid) in recommanded:
+                    print('Echo')
+                    pass
+                else:
+                    if len(recommanded) > 20:
+                        recommanded.popitem()
+                        recommanded[str(aid)] = 1
+                        print('owen')
+                    else:
+                        recommanded[str(aid)] = 1
+                    url = strtemp+str(aid)
+                    title = videoData[videoData['aid'] == aid].iloc[0][0]
+                    intro = videoData[videoData['aid'] == aid].iloc[0][1]
+                    weight = round(i[1],5)
+                    data.append([title,url,aid,intro,weight])
+
+            session['recommanded'] = recommanded
+            print(session['recommanded'])
+            # for i in g.sim.head(20).items():
+            #     aid = i[0]
+            #     url = strtemp+str(aid)
+            #     title = videoData[videoData['aid'] == aid].iloc[0][0]
+            #     intro = videoData[videoData['aid'] == aid].iloc[0][1]
+            #     weight = round(i[1],5)
+            #     data.append([title,url,aid,intro,weight])
         return render_template('RecommandPage.html',username=session['username'],data=data)
 
 @app.route('/show/')
