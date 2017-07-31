@@ -55,26 +55,33 @@ def Algorithm(videoData,userData):#算法主体部分
     # userData 用户偏好表,Series类型
 
     videoIndex = videoData.ix[:,2:8]#视频热度数据
+
+    videoIndex = modifyData(videoIndex)
+
     videoAid = videoData["aid"]#视频的Aid
     videoTag = videoData.ix[:,8:]#视频标签
     videoNum = videoData.__len__()#视频数量
 
 
     similarity = {}#余弦相似度度量，字典类型，key为视频aid
+    weight = {}
 
     userPrefVictor = mod(userData)#用户偏好向量的模值.
 
 
-    for i in range(100000,105000):
+    for i in range(100000,101000):
+        influnce =  getInflunce(videoIndex.iloc[i])
         videoVictor = pd.Series(data=1,index=videoTag.iloc[i].dropna().values)#构造视频向量
         videoValue = len(videoTag.iloc[i].dropna())
         dot = (videoVictor * userData).dropna().sum()#计算内积
         print(i)
-        if dot > 0.5:
-            similarity[videoAid.iloc[i]] = dot / (videoValue+userPrefVictor)#余弦相似度
+        if dot >= 1:
+            similarity = dot / (videoValue+userPrefVictor)
+            # similarity[videoAid.iloc[i]] = dot / (videoValue+userPrefVictor)#余弦相似度
+            weight[videoAid.iloc[i]] = round(similarity,2)*round(influnce,2)
 
     global Sim
-    Sim = pd.Series(similarity)
+    Sim = pd.Series(weight)
     Sim = Sim.sort_values(0,0)
 
     """
@@ -89,6 +96,24 @@ def Algorithm(videoData,userData):#算法主体部分
     ProLock.release()
     """
 
+def modifyData(videoIndex):
+    videoIndex['view'] = videoIndex['view']/72707
+    videoIndex['danmaku'] = videoIndex['danmaku']/2057
+    videoIndex['reply'] = videoIndex['reply']/237
+    videoIndex['favorite'] = videoIndex['favorite']/1517
+    videoIndex['coin'] = videoIndex['coin']/627
+
+    return videoIndex
+
+def getInflunce(videoIndex):
+    view = videoIndex['view']
+    danmaku = videoIndex['danmaku']
+    reply = videoIndex['reply']
+    favorite = videoIndex['favorite']
+    coin = videoIndex['coin']
+
+    influnce = (view+danmaku+reply*2+favorite*3+coin*3)/10
+    return influnce
 
 #取模运算
 def mod(data):
