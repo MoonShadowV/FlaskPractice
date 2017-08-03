@@ -20,7 +20,7 @@
 	<h2>Bilibili RS</h2>
 	<div class="login-top">
 		<h1>登 录</h1>
-		<form action="{{ url_for('login')}}" method="post">
+		<form action="{{ url_for('login')}}" method="post" id="login-form">
 			<input name="username" type="text" value="User Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'User Name';}">
 			<input name="password" type="password" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}">
 			<input type="submit" value="登录" >
@@ -30,7 +30,6 @@
         <h3>New User &nbsp;<a data-target="#register" data-toggle="modal" href="">Register</a>&nbsp Here</h3>
     </div>
 </div>
-
     <div id="register" class="modal fade" data-backdrop="static" role="dialog" tabindex="-1" aria-labelledby="title1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -42,14 +41,18 @@
                     <form class="form-group" action="{{ url_for('register')}}" method="post">
                         <div class="form-group">
                             <label for="">用户名</label>
-                            <input name="user_name" class="form-control" type="text" placeholder="" >
+                            <input id="username" name="user_name" class="form-control" type="text" placeholder="" >
                         </div>
                         <div class="form-group">
                             <label for="">密码</label>
-                            <input name="user_password" class="form-control" type="password" placeholder="">
+                            <input id="password" name="user_password" class="form-control" type="password" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">确认密码</label>
+                            <input id="ensure" name="ensure" class="form-control" type="password" placeholder="">
                         </div>
                         <div class="text-right">
-                            <button class="btn btn-primary" type="submit">确认</button>
+                            <button class="btn btn-primary" type="submit" id="submit">确认</button>
                             <button class="btn btn-danger" data-dismiss="modal">取消</button>
                         </div>
                     </form>
@@ -68,3 +71,27 @@
 
 </body>
 </html>
+
+<script>
+    $("document").ready(function () {
+        $("#submit").click(function () {
+            var username = $("#username").val();
+            console.log(username === null);
+            var password = $("#password").val();
+            var ensure = $("#ensure").val();
+            if(password !== ensure){
+                alert("请再次确认密码！");
+                return false
+            }else if(ensure === null || ensure === ""){
+                alert("请确认您的密码！");
+                return false
+            }else if(username === null || username === ""){
+                alert("用户名不能为空！");
+                return false
+            }else if(password === null || password === ""){
+                alert("密码不能为空");
+                return false
+            }
+        })
+    })
+</script>

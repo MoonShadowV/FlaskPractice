@@ -152,6 +152,7 @@ def runAlgorithm(Data,userData):
 @app.route('/updateUserPref/')
 def updateUserPref():
     user_id = session['id']
+
     aid = request.args.get('aid')
 
     db = get_db()
