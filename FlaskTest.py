@@ -47,9 +47,6 @@ def get_id(usename):
     user_id =cur.fetchone()
     return user_id
 
-
-
-
 def Algorithm(videoData,userData):#算法主体部分
     # videoData 视频数据,DataFrame类型
     # userData 用户偏好表,Series类型
@@ -214,21 +211,21 @@ def recommand():
 
             print(session['recommanded'])
             recommanded = session['recommanded']
+            data = list()
 
-            for i in g.sim.head(40).items():
+            for i in g.sim.head(100).items():
                 if len(data) >= 20:
                     break
 
                 aid = i[0]
-                if str(aid) in recommanded:
-                    print('Echo')
-                    pass
-                else:
+                print(aid)
+                if str(aid) not in recommanded:
                     if len(recommanded) > 20:
-                        recommanded.popitem()
+                        recommanded.pop(list(recommanded.keys())[0])
                         recommanded[str(aid)] = 1
                         print('owen')
                     else:
+                        print('Echo')
                         recommanded[str(aid)] = 1
                     url = strtemp+str(aid)
                     title = videoData[videoData['aid'] == aid].iloc[0][0]
@@ -237,6 +234,7 @@ def recommand():
                     data.append([title,url,aid,intro,weight])
 
             session['recommanded'] = recommanded
+            print(recommanded)
             print(session['recommanded'])
             # for i in g.sim.head(20).items():
             #     aid = i[0]
